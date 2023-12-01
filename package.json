@@ -9,11 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "element-plus": "^2.4.3",
     "vue": "^3.3.8"
   },
   "devDependencies": {
+    "@iconify-json/ep": "^1.1.13",
     "@vitejs/plugin-vue": "^4.5.0",
     "unocss": "^0.57.7",
+    "unplugin-auto-import": "^0.17.1",
+    "unplugin-icons": "^0.18.0",
+    "unplugin-vue-components": "^0.25.2",
     "vite": "^5.0.0"
   }
 }

@@ -1,6 +1,23 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 import 'virtual:uno.css'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+const deblur = function (evt) {
+  let target = evt.target
+  if (target.nodeName == 'SPAN') {
+    target = evt.target.parentNode
+  }
+  target.blur()
+}
+
+app.directive('btn', {
+  mounted(el) {
+    el.addEventListener('focus', deblur)
+  },
+  unmounted(el) {
+    el.removeEventListener('focus', deblur)
+  }
+});
+app.mount('#app')

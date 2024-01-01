@@ -85,6 +85,8 @@ export default {
           :price="10"
           author="石黑一雄"
           publisher="上海译文出版社"
+          address="38号楼"
+          status="全新"
         />
         <BookCard
           class="flex-1 ml-5"
@@ -94,6 +96,8 @@ export default {
           :price="10"
           author="珍妮特·温特森"
           publisher="北京联合出版公司"
+          address="35号楼"
+          status="七成新；有少量勾画"
         />
       </div>
     </el-scrollbar>

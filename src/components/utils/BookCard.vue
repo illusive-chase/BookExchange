@@ -16,6 +16,8 @@
         <div v-if="author" class="mt-3 ml-3 text-sm">作者：{{ author }}</div>
         <div v-if="publisher" class="mt-3 ml-3 text-sm">出版社：{{ publisher }}</div>
         <div class="mt-3 ml-3 text-sm">价格：{{ price }}r</div>
+        <div class="mt-3 ml-3 text-sm">书籍状况：{{ status }}</div>
+        <div class="mt-3 ml-3 text-sm">取书地址：{{ address }}</div>
       </div>
       <div class="h-full flex flex-col items-end justify-between">
         <el-button v-btn link class="text-xl m-3">
@@ -55,6 +57,14 @@
     },
     price: {
       type: Number,
+      required: true
+    },
+    status: {
+      type: String,
+      required: true
+    },
+    address: {
+      type: String,
       required: true
     }
   });

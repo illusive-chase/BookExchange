@@ -10,13 +10,16 @@ export default {
         return {
           form: reactive({
             name: '',
-            region: '',
-            date1: '',
-            date2: '',
-            delivery: false,
-            type: [],
-            resource: '',
-            desc: '',
+            publisher: '',
+            author: '',
+            translator: '',
+            price: 0,
+            address: '',
+            status01: '',
+            status23: '',
+            status45: '',
+            status6: '',
+            status7: ''
           })
         };
     }
@@ -26,50 +29,58 @@ export default {
 
 <template>
   <el-form :model="form" label-width="120px">
-    <el-form-item label="Activity name">
+    <el-form-item label="书名" prop="name">
       <el-input v-model="form.name" />
     </el-form-item>
-    <el-form-item label="Activity zone">
-      <el-select v-model="form.region" placeholder="please select your zone">
-        <el-option label="Zone one" value="shanghai" />
-        <el-option label="Zone two" value="beijing" />
-      </el-select>
+    <el-form-item label="出版社" prop="publisher">
+      <el-input v-model="form.publisher" />
     </el-form-item>
-    <el-form-item label="Activity time">
-      <el-col :span="11">
-        <el-date-picker
-          v-model="form.date1"
-          type="date"
-          placeholder="Pick a date"
-          style="width: 100%"
-        />
-      </el-col>
-      <el-col :span="2" class="text-center">
-        <span class="text-gray-500">-</span>
-      </el-col>
-      <el-col :span="11">
-        <el-time-picker
-          v-model="form.date2"
-          placeholder="Pick a time"
-          style="width: 100%"
-        />
-      </el-col>
+    <el-form-item label="作者" prop="author">
+      <el-input v-model="form.author" />
     </el-form-item>
-    <el-form-item label="Instant delivery">
-      <el-switch v-model="form.delivery" />
+    <el-form-item label="译者" prop="translator">
+      <el-input v-model="form.translator" />
     </el-form-item>
-    <el-form-item label="Activity type">
-      <el-checkbox-group v-model="form.type">
-        <el-checkbox label="Online activities" name="type" />
-        <el-checkbox label="Promotion activities" name="type" />
-        <el-checkbox label="Offline activities" name="type" />
-        <el-checkbox label="Simple brand exposure" name="type" />
-      </el-checkbox-group>
+    <el-form-item label="价格" prop="price">
+      <el-input v-model.number="form.price" />
     </el-form-item>
-    <el-form-item label="Resources">
-      <el-radio-group v-model="form.resource">
-        <el-radio label="Sponsor" />
-        <el-radio label="Venue" />
+    <el-form-item label="取书地址" prop="address">
+      <el-input v-model="form.address" />
+    </el-form-item>
+    <el-form-item label="纸张新旧">
+      <el-radio-group v-model="form.status01">
+        <el-radio label="九成新" />
+        <el-radio label="七成新" />
+        <el-radio label="五成新" />
+        <el-radio label="三成新" />
+      </el-radio-group>
+    </el-form-item>
+    <el-form-item label="勾画程度">
+      <el-radio-group v-model="form.status23">
+        <el-radio label="无勾画" />
+        <el-radio label="微勾画" />
+        <el-radio label="少量勾画" />
+        <el-radio label="大量勾画" />
+      </el-radio-group>
+    </el-form-item>
+    <el-form-item label="封面完整性">
+      <el-radio-group v-model="form.status45">
+        <el-radio label="九成" />
+        <el-radio label="七成" />
+        <el-radio label="五成" />
+        <el-radio label="三成" />
+      </el-radio-group>
+    </el-form-item>
+    <el-form-item label="液体污渍">
+      <el-radio-group v-model="form.status6">
+        <el-radio label="无" />
+        <el-radio label="有" />
+      </el-radio-group>
+    </el-form-item>
+    <el-form-item label="缺页">
+      <el-radio-group v-model="form.status7">
+        <el-radio label="无" />
+        <el-radio label="有" />
       </el-radio-group>
     </el-form-item>
     <el-form-item label="Activity form">

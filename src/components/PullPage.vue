@@ -238,3 +238,12 @@ export default {
   </div> -->
 </template>
 
+
+<style>
+div.el-collapse-item__wrap {
+  border-bottom: none;
+}
+div.el-collapse-item__content {
+  border-bottom: 1px solid var(--el-collapse-border-color);
+}
+</style>

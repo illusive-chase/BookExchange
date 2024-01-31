@@ -4,12 +4,12 @@
       <div class="w-40 p-5">
         <el-menu default-active="1" class="b-r-0" @open="SelectMenu" :unique-opened="true">
           <el-menu-item index="1" class="text-lg">
-            <i-ep-House></i-ep-House>
-            <span class="ml-3">首页</span>
+            <i-ep-Search></i-ep-Search>
+            <span class="ml-3">探索</span>
           </el-menu-item>
           <el-menu-item index="2" class="text-lg">
-            <i-ep-Connection></i-ep-Connection>
-            <span class="ml-3">订阅</span>
+            <i-ep-House></i-ep-House>
+            <span class="ml-3">我的</span>
           </el-menu-item>
           <el-menu-item index="3" class="text-lg">
             <i-ep-DocumentAdd></i-ep-DocumentAdd>

@@ -13,13 +13,13 @@ export default {
             publisher: '',
             author: '',
             translator: '',
-            price: 0,
+            price: '',
             address: '',
-            status01: '',
-            status23: '',
-            status45: '',
-            status6: '',
-            status7: ''
+            status01: 0,
+            status23: 0,
+            status45: 0,
+            status6: 0,
+            status7: 0
           })
         };
     }
@@ -28,67 +28,74 @@ export default {
 </script>
 
 <template>
-  <el-form :model="form" label-width="120px">
-    <el-form-item label="书名" prop="name">
+  <div class="my-10 text-lg font-bold ml-10">新增书籍售出</div>
+  <el-form :model="form" label-width="100px" class="my-10 ml-5 mr-10">
+    <el-form-item label="书名" prop="name" :rules="[
+        { required: true, message: '必须填入书名' }
+      ]">
       <el-input v-model="form.name" />
     </el-form-item>
     <el-form-item label="出版社" prop="publisher">
       <el-input v-model="form.publisher" />
     </el-form-item>
-    <el-form-item label="作者" prop="author">
+    <el-form-item label="作者" prop="author" :rules="[
+        { required: true, message: '必须填入作者' }
+      ]">
       <el-input v-model="form.author" />
     </el-form-item>
     <el-form-item label="译者" prop="translator">
       <el-input v-model="form.translator" />
     </el-form-item>
-    <el-form-item label="价格" prop="price">
-      <el-input v-model.number="form.price" />
-    </el-form-item>
-    <el-form-item label="取书地址" prop="address">
-      <el-input v-model="form.address" />
-    </el-form-item>
     <el-form-item label="纸张新旧">
-      <el-radio-group v-model="form.status01">
-        <el-radio label="九成新" />
-        <el-radio label="七成新" />
-        <el-radio label="五成新" />
-        <el-radio label="三成新" />
+      <el-radio-group v-model.number="form.status01">
+        <el-radio :label="0">九成新</el-radio>
+        <el-radio :label="1">七成新</el-radio>
+        <el-radio :label="2">五成新</el-radio>
+        <el-radio :label="3">三成新</el-radio>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="勾画程度">
-      <el-radio-group v-model="form.status23">
-        <el-radio label="无勾画" />
-        <el-radio label="微勾画" />
-        <el-radio label="少量勾画" />
-        <el-radio label="大量勾画" />
+      <el-radio-group v-model.number="form.status23">
+        <el-radio :label="0">无勾画</el-radio>
+        <el-radio :label="1">微勾画</el-radio>
+        <el-radio :label="2">少量勾画</el-radio>
+        <el-radio :label="3">大量勾画</el-radio>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="封面完整性">
-      <el-radio-group v-model="form.status45">
-        <el-radio label="九成" />
-        <el-radio label="七成" />
-        <el-radio label="五成" />
-        <el-radio label="三成" />
+      <el-radio-group v-model.number="form.status45">
+        <el-radio :label="0">九成</el-radio>
+        <el-radio :label="1">七成</el-radio>
+        <el-radio :label="2">五成</el-radio>
+        <el-radio :label="3">三成</el-radio>
       </el-radio-group>
     </el-form-item>
-    <el-form-item label="液体污渍">
-      <el-radio-group v-model="form.status6">
-        <el-radio label="无" />
-        <el-radio label="有" />
+    <el-form-item label="污渍">
+      <el-radio-group v-model.number="form.status6">
+        <el-radio :label="0">无</el-radio>
+        <el-radio :label="1">有</el-radio>
       </el-radio-group>
     </el-form-item>
     <el-form-item label="缺页">
-      <el-radio-group v-model="form.status7">
-        <el-radio label="无" />
-        <el-radio label="有" />
+      <el-radio-group v-model.number="form.status7">
+        <el-radio :label="0">无</el-radio>
+        <el-radio :label="1">有</el-radio>
       </el-radio-group>
     </el-form-item>
-    <el-form-item label="Activity form">
-      <el-input v-model="form.desc" type="textarea" />
+    <el-form-item label="价格" prop="price" :rules="[
+        { required: true, message: '必须填入价格' },
+        { type: 'number', message: '价格必须是一个数字' },
+        { min: 0, message: '价格必须大于或等于0' },
+      ]">
+      <el-input v-model.number="form.price" />
+    </el-form-item>
+    <el-form-item label="交接地址" prop="address" :rules="[
+        { required: true, message: '必须填入交接地址' }
+      ]">
+      <el-input v-model="form.address" />
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="onSubmit">Create</el-button>
-      <el-button>Cancel</el-button>
+      <el-button type="primary" @click="onSubmit">确认</el-button>
     </el-form-item>
   </el-form>
 </template>

@@ -52,7 +52,7 @@ export default {
     </el-collapse-item>
     <el-collapse-item name="2">
       <template #title>
-        <div class="text-base px-12 font-bold">已购入</div>
+        <div class="text-base px-12 font-bold">购入中</div>
       </template>
       <div style="height:calc(100vh - 5 * var(--el-collapse-header-height) - 30px)">
         <el-scrollbar>
@@ -85,7 +85,7 @@ export default {
     </el-collapse-item>
     <el-collapse-item name="3" :disabled="true">
       <template #title>
-        <div class="text-base px-12 font-bold">购入中</div>
+        <div class="text-base px-12 font-bold">已购入</div>
       </template>
       <div style="height:calc(100vh - 5 * var(--el-collapse-header-height) - 30px)">
         <el-scrollbar>
